@@ -5,12 +5,12 @@ exports.updateScore = async (req, res) => {
 
   const user = await User.findById(req.user.id);
 
-  if (score > user.bestScore) {
-    user.bestScore = score;
+  if (score > (user.bestscore || 0)) {
+    user.bestscore = score;
     await user.save();
   }
 
-  res.json({ message: "Score mis à jour" });
+  res.json({ message: "Score mis à jour", bestscore: user.bestscore });
 };
 
 exports.getLeaderboard = async (req, res) => {
