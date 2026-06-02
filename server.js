@@ -17,5 +17,10 @@ app.get("/", (req, res) => {
   res.send("API PolyQuiz en marche");
 });
 
+//branchement des routes 
+app.use("/api/auth", require("./routes/authRoutes"));
+app.use("/api/questions", require("./routes/questionRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Le serveur est lance sur ${PORT}`));
