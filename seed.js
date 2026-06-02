@@ -25,7 +25,7 @@ const seedDB = async () => {
   await Question.deleteMany();
   await Question.insertMany(questions);
 
-  console.log("DB remplie !");
+  console.log("Base de Donnees remplie !");
   process.exit();
 };
 
